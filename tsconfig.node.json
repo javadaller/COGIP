@@ -15,6 +15,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*", "routes/**/*"],
+  "include": ["src/**/*", "routes/**/*", "src/React Components/App.jsx", "src/React Components/main.jsx"],
   "exclude": ["node_modules"]
 }
