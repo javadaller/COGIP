@@ -1,5 +1,8 @@
-import mysql, { Connection } from 'mysql'
-import dotenv from 'dotenv'
+import * as mysql from 'mysql';
+import * as dotenv from 'dotenv';
+
+type Connection = mysql.Connection;
+
 
 dotenv.config()
 
