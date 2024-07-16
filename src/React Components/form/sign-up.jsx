@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 
-const Login = () => {
+const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Logique d'inscription ici
     console.log('Username:', username);
     console.log('Password:', password);
   };
 
   return (
     <div>
-      <h2>Login Page</h2>
+      <h2>Sign Up Page</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
@@ -32,10 +33,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
 };
 
-export default Login; 
+export default Signup; 

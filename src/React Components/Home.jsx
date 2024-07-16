@@ -1,9 +1,13 @@
 
 import img from "../../Assets/Images/homeImg.png";
+import rectangleblanc from "../../Assets/Images/rectangleblanc.png";
 import { Link } from 'react-router-dom';
 
 
 export default function Home() {
+
+
+
     const nav = {
         display: 'flex',
         justifyContent: 'space-between',
@@ -103,13 +107,17 @@ export default function Home() {
                     <h1 style={h1}>COGIP</h1>
                     <ul style={ul}>
                         <li style={homeLi}>Home</li>
+                        <Link to="/invoices">
                         <li style={li}>Invoices</li>
+                        </Link>
                         <li style={li}>Companies</li>
                         <li style={li}>Contacts</li>
                     </ul>
                 </div>
                 <div style={div}>
+                <Link to="/sign-up">
                     <button style={btn1}>Sign up</button>
+                    </Link>
                     <Link to="/login">
         <button style={btn}>Login</button>
       </Link>
@@ -121,6 +129,7 @@ export default function Home() {
                 <h2 style={h2}>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>
                 <div style={imageContainer}>
                     <img src={img} alt="Home illustration" style={imgStyle} />
+                    <img src={rectangleblanc} alt="Home illustration" style={imgStyle} />
                 </div>
             </div>
         </>
