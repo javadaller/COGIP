@@ -7,22 +7,20 @@ export async function getUsersTest() {
             },
         });
 
-        // Vérifier la réponse brute
-        const rawResponse = await request.text();
-        console.log('Raw response:', rawResponse);
+        const rawResponse = await request.text()
+        console.log('Raw response:', rawResponse)
 
         if (!request.ok) {
-            throw new Error(`HTTP error! Status: ${request.status}`);
+            throw new Error(`HTTP error! Status: ${request.status}`)
         }
 
-        // Essayer de parser le JSON seulement si la réponse est correcte
-        const result = JSON.parse(rawResponse);
-        console.log('Result:', result);
+        const result = JSON.parse(rawResponse)
+        console.log('Result:', result)
 
-        return result;
+        return result
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-        console.error('Error:', error);
-        alert(`Error: `+error.message);
+        console.error('Error:', error)
+        alert(`Error: `+error.message)
     }
 }

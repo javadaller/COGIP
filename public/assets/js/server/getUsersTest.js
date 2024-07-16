@@ -16,13 +16,11 @@ export function getUsersTest() {
                     'Content-Type': 'application/json',
                 },
             });
-            // Vérifier la réponse brute
             const rawResponse = yield request.text();
             console.log('Raw response:', rawResponse);
             if (!request.ok) {
                 throw new Error(`HTTP error! Status: ${request.status}`);
             }
-            // Essayer de parser le JSON seulement si la réponse est correcte
             const result = JSON.parse(rawResponse);
             console.log('Result:', result);
             return result;

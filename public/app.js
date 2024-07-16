@@ -11,13 +11,10 @@ import { getUsersTest } from "./assets/js/server/getUsersTest.js";
 function test() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            // Appel de la fonction et capture du résultat
             const result = yield getUsersTest();
-            // Affichage du résultat dans la console
             console.log('Result:', result);
         }
         catch (error) {
-            // Gestion des erreurs potentielles
             console.error('Error:', error);
         }
     });
