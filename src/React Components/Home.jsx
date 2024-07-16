@@ -1,5 +1,8 @@
 
 import img from "../../Assets/Images/homeImg.png";
+import { Link } from 'react-router-dom';
+
+
 export default function Home() {
     const nav = {
         display: 'flex',
@@ -107,7 +110,10 @@ export default function Home() {
                 </div>
                 <div style={div}>
                     <button style={btn1}>Sign up</button>
-                    <button style={btn}>Login</button>
+                    <Link to="/login">
+        <button style={btn}>Login</button>
+      </Link>
+                    
                 </div>
             </nav>
 

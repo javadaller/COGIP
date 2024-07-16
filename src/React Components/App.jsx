@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from './Home'
+import { Link } from 'react-router-dom';
 
     function App() {
     return (
@@ -9,4 +10,4 @@ import Home from './Home'
     )
     }
 
-export default App
+export default App;
