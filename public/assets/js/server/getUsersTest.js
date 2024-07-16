@@ -10,17 +10,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 export function getUsersTest() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const request = yield fetch(`/api/users/getAllUsers`, {
+            const request = yield fetch(`http://localhost:5173/api/users/getAllUsers`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
+            // Vérifier la réponse brute
+            const rawResponse = yield request.text();
+            console.log('Raw response:', rawResponse);
             if (!request.ok) {
                 throw new Error(`HTTP error! Status: ${request.status}`);
             }
-            const result = yield request.json();
-            console.log(result);
+            // Essayer de parser le JSON seulement si la réponse est correcte
+            const result = JSON.parse(rawResponse);
+            console.log('Result:', result);
+            return result;
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         }
         catch (error) {
