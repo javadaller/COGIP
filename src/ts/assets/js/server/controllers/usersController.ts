@@ -66,3 +66,20 @@ export async function registerUser(email: string, password: string, first_name: 
         throw error
     }
 }
+
+export async function promoteUser(id: number) {
+    const connection = await connectToDatabase();
+    const sql = 'UPDATE users SET role_ID = ? WHERE ID_user = ?';
+    const [result] = await connection.query(sql, [1, id]) as any; // supposons que 1 est le rôle d'administrateur
+    await connection.end();
+    return result;
+}
+
+export async function demoteUser(id: number) {
+    const connection = await connectToDatabase();
+    const sql = 'UPDATE users SET role_ID = ? WHERE ID_user = ?';
+    const [result] = await connection.query(sql, [2, id]) as any; // supposons que 2 est le rôle d'utilisateur standard
+    await connection.end();
+    return result;
+}
+

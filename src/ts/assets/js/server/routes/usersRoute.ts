@@ -1,10 +1,8 @@
 import { Request, Response, Router } from 'express'
-import { getAllUsers, loginUser, registerUser } from '../controllers/usersController.js'
-import { Authenticated } from '../secure/secure.js'
+import { getAllUsers, loginUser, registerUser, promoteUser, demoteUser } from '../controllers/usersController.js'
+import { Authenticated, Admin } from '../secure/secure.js'
 
 const router = Router()
-
-
 
 router.get('/api/users/getAllUsers', Authenticated, async (_req: Request, res: Response) => {
     try {
@@ -66,5 +64,16 @@ router.get('/api/users/logout', Authenticated, (req: Request, res: Response) => 
     res.status(200).send();
 });
 
+router.put('/api/users/:id/promote', Authenticated, Admin, async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const result = await promoteUser(id);
+    res.json(result);
+});
+
+router.put('/api/users/:id/demote', Authenticated, Admin, async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const result = await demoteUser(id);
+    res.json(result);
+});
 
 export default router
