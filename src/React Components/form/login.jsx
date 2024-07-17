@@ -6,6 +6,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Logique de connexion ici
     console.log('Username:', username);
     console.log('Password:', password);
   };
@@ -38,4 +39,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;
