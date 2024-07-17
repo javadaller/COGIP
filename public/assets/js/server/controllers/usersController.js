@@ -24,3 +24,19 @@ export function getAllUsers() {
         }
     });
 }
+export function loginUser(email, password) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const connection = yield connectToDatabase();
+            const sql = 'SELECT * FROM users WHERE email = ? AND password = ?';
+            const [rows] = yield connection.query(sql, [email, password]);
+            console.log('User login:', rows);
+            yield connection.end();
+            return rows[0];
+        }
+        catch (error) {
+            console.error('Error during user login:', error);
+            throw error;
+        }
+    });
+}

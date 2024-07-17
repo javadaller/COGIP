@@ -8,9 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Router } from 'express';
-import { getAllUsers } from '../controllers/usersController.js';
+import { getAllUsers, loginUser } from '../controllers/usersController.js';
 const router = Router();
-router.get('/api/users/getAllUsers', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/api/users/getAllUsers', (res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield getAllUsers();
         res.json(users);
@@ -18,6 +18,22 @@ router.get('/api/users/getAllUsers', (req, res) => __awaiter(void 0, void 0, voi
     catch (error) {
         console.error('Error retrieving users:', error);
         res.status(500).json({ error: 'Error retrieving users' });
+    }
+}));
+router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { email, password } = req.body;
+        const user = yield loginUser(email, password);
+        if (user) {
+            res.json(user);
+        }
+        else {
+            res.status(401).json({ error: 'Invalid email or password' });
+        }
+    }
+    catch (error) {
+        console.error('Error logging in:', error);
+        res.status(500).json({ error: 'Error logging in' });
     }
 }));
 export default router;
