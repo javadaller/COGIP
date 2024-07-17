@@ -33,3 +33,27 @@ export async function loginUser(email: string, password: string) {
         throw error;
     }
 }
+
+export async function registerUser(email: string, password: string, first_name: string) {
+    try {
+
+        if ((!email || !password || !first_name)) {
+            console.error("entry not valid");
+            return;
+        }
+
+        const connection = await connectToDatabase();
+        const sql = 'INSERT INTO users (email, password, first_name, role_ID, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)';
+        const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        const [result] = await connection.query(sql, [email, password, first_name, 2, now, now]) as any;
+
+        console.log('User registered:', result);
+
+        await connection.end();
+
+        return result;
+    } catch (error) {
+        console.error('Error during user registration:', error);
+        throw error;
+    }
+}
