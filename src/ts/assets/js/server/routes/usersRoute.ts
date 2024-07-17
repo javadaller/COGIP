@@ -76,4 +76,5 @@ router.put('/api/users/:id/demote', Authenticated, Admin, async (req: Request, r
     res.json(result);
 });
 
+
 export default router

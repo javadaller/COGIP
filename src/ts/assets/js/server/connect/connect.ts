@@ -30,3 +30,4 @@ export const closeDatabaseConnection = async (connection: mysql.Connection) => {
     throw error;
   }
 };
+

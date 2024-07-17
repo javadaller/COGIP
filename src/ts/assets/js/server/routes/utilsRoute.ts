@@ -59,19 +59,25 @@ router.put('/api/companies/:id', Authenticated, async (req: Request, res: Respon
     res.json(result);
 });
 
-router.get('/api/companies', Authenticated, async (_req: Request, res: Response) => {
-    const companies = await getAllCompanies();
-    res.json(companies);
-});
-
-router.get('/api/invoices', Authenticated, async (_req: Request, res: Response) => {
-    const invoices = await getAllInvoices();
+router.get('/api/invoices', Authenticated, async (req: Request, res: Response) => {
+    const page = Number(req.query.page) || 1;
+    const pageSize = Number(req.query.pageSize) || 10;
+    const invoices = await getAllInvoices(page, pageSize);
     res.json(invoices);
 });
 
-router.get('/api/contacts', Authenticated, async (_req: Request, res: Response) => {
-    const contacts = await getAllContacts();
+router.get('/api/contacts', Authenticated, async (req: Request, res: Response) => {
+    const page = Number(req.query.page) || 1;
+    const pageSize = Number(req.query.pageSize) || 10;
+    const contacts = await getAllContacts(page, pageSize);
     res.json(contacts);
+});
+
+router.get('/api/companies', Authenticated, async (req: Request, res: Response) => {
+    const page = Number(req.query.page) || 1;
+    const pageSize = Number(req.query.pageSize) || 10;
+    const companies = await getAllCompanies(page, pageSize);
+    res.json(companies);
 });
 
 router.post('/api/invoices', Authenticated, async (req: Request, res: Response) => {
@@ -127,6 +133,5 @@ router.get('/api/companies/:id', Authenticated, async (req: Request, res: Respon
     const company = await getCompany(id);
     res.json(company);
 });
-
 
 export default router

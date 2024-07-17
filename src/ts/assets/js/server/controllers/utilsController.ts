@@ -54,26 +54,29 @@ export async function editCompany(id: number, newCompanyData: any) {
     return result;
 }
 
-export async function getAllCompanies() {
+export async function getAllInvoices(page: number, pageSize: number) {
     const connection = await connectToDatabase();
-    const sql = 'SELECT * FROM companies ORDER BY name';
-    const [rows] = await connection.query(sql) as any;
+    const offset = (page - 1) * pageSize;
+    const sql = 'SELECT * FROM invoices ORDER BY created_at DESC LIMIT ?, ?';
+    const [rows] = await connection.query(sql, [offset, pageSize]) as any;
     await connection.end();
     return rows;
 }
 
-export async function getAllInvoices() {
+export async function getAllContacts(page: number, pageSize: number) {
     const connection = await connectToDatabase();
-    const sql = 'SELECT * FROM invoices ORDER BY created_at DESC';
-    const [rows] = await connection.query(sql) as any;
+    const offset = (page - 1) * pageSize;
+    const sql = 'SELECT * FROM contacts ORDER BY created_at DESC LIMIT ?, ?';
+    const [rows] = await connection.query(sql, [offset, pageSize]) as any;
     await connection.end();
     return rows;
 }
 
-export async function getAllContacts() {
+export async function getAllCompanies(page: number, pageSize: number) {
     const connection = await connectToDatabase();
-    const sql = 'SELECT * FROM contacts ORDER BY name';
-    const [rows] = await connection.query(sql) as any;
+    const offset = (page - 1) * pageSize;
+    const sql = 'SELECT * FROM companies ORDER BY created_at DESC LIMIT ?, ?';
+    const [rows] = await connection.query(sql, [offset, pageSize]) as any;
     await connection.end();
     return rows;
 }
