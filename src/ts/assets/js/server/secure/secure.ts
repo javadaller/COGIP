@@ -7,3 +7,4 @@ export function Authenticated(req: Request, res: Response, next: NextFunction) {
     }
     res.status(401).send('Veuillez vous connecter pour accéder à cette ressource');
 }
+
