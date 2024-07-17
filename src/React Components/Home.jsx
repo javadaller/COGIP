@@ -129,7 +129,6 @@ export default function Home() {
                 <h2 style={h2}>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>
                 <div style={imageContainer}>
                     <img src={img} alt="Home illustration" style={imgStyle} />
-                    <img src={rectangleblanc} alt="Home illustration" style={imgStyle} />
                 </div>
             </div>
         </>
