@@ -1,16 +1,21 @@
 
-// import img from "../../Assets/Images/homeImg.png";
-// import overlayImg from "../../Assets/Images/headerBottom.png";
-// import { Link } from "react-router-dom";
-// export default function Home() {
-//     const nav = {
-//         display: 'flex',
-//         justifyContent: 'space-between',
-//         alignItems: 'center',
-//         padding: '10px 20px',
-//         background: '#f9de4e',
-//         color: 'black',
-//     };
+import img from "../../Assets/Images/homeImg.png";
+import rectangleblanc from "../../Assets/Images/rectangleblanc.png";
+import { Link } from 'react-router-dom';
+
+
+export default function Home() {
+
+
+
+    const nav = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '10px 20px',
+        background: '#f9de4e',
+        color: 'black',
+    };
 
 //     const navSection = {
 //         marginTop: '50px',
@@ -90,38 +95,41 @@
 //         marginRight: '10px',
 //     };
 
-//     const overlayStyle = {
-//         width: '90%',
-//         position: 'absolute', 
-//         bottom: '0', 
-//         left: '50px',
-//         height: 'auto',
-//         zIndex: '1'
-//     }
+    const imageContainer = {
+        display: 'flex',
+        alignItems: 'center',
+        width: '170%',
+    };
 
+    const imgStyle = {
+        maxWidth: '100%',
+        height: 'auto',
+    };
 
-//     return (
-//         <>
-//             <nav style={nav}>
-//                 <div style={navSection}>
-//                     <h1 style={h1}>COGIP</h1>
-//                     <ul style={ul}>
-//                         <li style={homeLi}><Link to="/">Home</Link></li>
-//                         <li style={li}><Link to="/Invoices">Invoices</Link></li>
-//                         <li style={li}><Link  to="/Companies">Companies</Link></li>
-//                         <li style={li}><Link  to="/Contacts">Contacts</Link></li>
-
-// <li ><Link to="/">Home</Link></li>
-//                         <li><Link to="/Invoices">Invoices</Link></li>
-//                         <li><Link  to="/Companies">Companies</Link></li>
-//                         <li><Link  to="/Contacts">Contacts</Link></li>
-//                     </ul>
-//                 </div>
-//                 <div style={div}>
-//                     <button style={btn1}>Sign up</button>
-//                     <button style={btn}>Login</button>
-//                 </div>
-//             </nav>
+    return (
+        <>
+            <nav style={nav}>
+                <div style={navSection}>
+                    <h1 style={h1}>COGIP</h1>
+                    <ul style={ul}>
+                        <li style={homeLi}>Home</li>
+                        <Link to="/invoices">
+                        <li style={li}>Invoices</li>
+                        </Link>
+                        <li style={li}>Companies</li>
+                        <li style={li}>Contacts</li>
+                    </ul>
+                </div>
+                <div style={div}>
+                <Link to="/sign-up">
+                    <button style={btn1}>Sign up</button>
+                    </Link>
+                    <Link to="/login">
+        <button style={btn}>Login</button>
+      </Link>
+                    
+                </div>
+            </nav>
 
 //                 <div style={imageContainer}>
 //                 <h2 style={h2}>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>

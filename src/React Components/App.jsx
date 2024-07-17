@@ -1,9 +1,7 @@
 
 import React from 'react'
 import Home from './Home'
-import Footer from './Footer'
-import LowerBody from './LowerBody'
-
+import { Link } from 'react-router-dom';
 
     function App() {
     return (
@@ -16,4 +14,4 @@ import LowerBody from './LowerBody'
     )
     }
 
-export default App
+export default App;
