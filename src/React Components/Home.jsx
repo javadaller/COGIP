@@ -110,8 +110,12 @@ export default function Home() {
                         <Link to="/invoices">
                         <li style={li}>Invoices</li>
                         </Link>
+                        <Link to="/compagny">
                         <li style={li}>Companies</li>
+                        </Link>
+                        <Link to="/contact">
                         <li style={li}>Contacts</li>
+                        </Link>
                     </ul>
                 </div>
                 <div style={div}>
