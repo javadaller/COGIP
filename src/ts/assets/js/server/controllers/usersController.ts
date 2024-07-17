@@ -37,7 +37,6 @@ export async function loginUser(email: string, password: string) {
 export async function registerUser(email: string, password: string, first_name: string) {
     try {
 
-
         if ((!email || !password || !first_name)) {
             console.error("entry not valid")
             return
@@ -52,7 +51,6 @@ export async function registerUser(email: string, password: string, first_name: 
             console.error('Email or first name already exists')
             return
         }
-
 
         const sql = 'INSERT INTO users (email, password, first_name, role_ID, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)'
         const now = new Date().toISOString().slice(0, 19).replace('T', ' ')

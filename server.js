@@ -4,6 +4,8 @@ import path from "path"
 import { fileURLToPath } from "url"
 import cors from "cors"
 import usersRoute from './public/assets/js/server/routes/usersRoute.js'
+import utilsRoute from './public/assets/js/server/routes/utilsRoute.js'
+
 
 const app = express()
 const PORT = 5173
@@ -15,6 +17,7 @@ app.use(cors())
 app.use(express.json())
 app.use(session({ secret: "euh", resave: false, saveUninitialized: true }))
 app.use(usersRoute)
+app.use(utilsRoute)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
