@@ -1,5 +1,7 @@
 
 import img from "../../Assets/Images/homeImg.png";
+import overlayImg from "../../Assets/Images/headerBottom.png";
+import { Link } from "react-router-dom";
 export default function Home() {
     const nav = {
         display: 'flex',
@@ -67,16 +69,9 @@ export default function Home() {
         border: 'none',
         cursor: 'pointer',
     }
-    const mainContainer = {
-        display: 'flex',
-        alignItems: 'center',
-        background: '#f9de4e',
-        padding: '50px 20px',
-        height: '100vh',
-    };
 
     const h2 = {
-        fontSize: '40px',
+        fontSize: '50px',
         fontWeight: 'bold',
         marginBottom: '30px',
         marginLeft: '80px',
@@ -84,14 +79,26 @@ export default function Home() {
 
     const imageContainer = {
         display: 'flex',
-        alignItems: 'center',
-        width: '170%',
+        position: 'relative',
+        background: '#f9de4e',
+        padding: '50px 20px',
+        height: '90vh',
     };
 
     const imgStyle = {
-        maxWidth: '100%',
-        height: 'auto',
+        maxWidth: '50%',
+        marginRight: '10px',
     };
+
+    const overlayStyle = {
+        width: '90%',
+        position: 'absolute', 
+        bottom: '0', 
+        left: '50px',
+        height: 'auto',
+        zIndex: '1'
+    }
+
 
     return (
         <>
@@ -99,10 +106,15 @@ export default function Home() {
                 <div style={navSection}>
                     <h1 style={h1}>COGIP</h1>
                     <ul style={ul}>
-                        <li style={homeLi}>Home</li>
-                        <li style={li}>Invoices</li>
-                        <li style={li}>Companies</li>
-                        <li style={li}>Contacts</li>
+                        <li style={homeLi}><Link to="/">Home</Link></li>
+                        <li style={li}><Link to="/Invoices">Invoices</Link></li>
+                        <li style={li}><Link  to="/Companies">Companies</Link></li>
+                        <li style={li}><Link  to="/Contacts">Contacts</Link></li>
+
+<li ><Link to="/">Home</Link></li>
+                        <li><Link to="/Invoices">Invoices</Link></li>
+                        <li><Link  to="/Companies">Companies</Link></li>
+                        <li><Link  to="/Contacts">Contacts</Link></li>
                     </ul>
                 </div>
                 <div style={div}>
@@ -111,12 +123,11 @@ export default function Home() {
                 </div>
             </nav>
 
-            <div style={mainContainer}>
-                <h2 style={h2}>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>
                 <div style={imageContainer}>
+                <h2 style={h2}>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>
                     <img src={img} alt="Home illustration" style={imgStyle} />
+                <img src={overlayImg} style={overlayStyle} alt="" />
                 </div>
-            </div>
         </>
     );
 }
