@@ -10,7 +10,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { Router } from 'express';
 import { getAllUsers, loginUser } from '../controllers/usersController.js';
 const router = Router();
-router.get('/api/users/getAllUsers', (res) => __awaiter(void 0, void 0, void 0, function* () {
+function Authenticated(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.status(401).send('Veuillez vous connecter pour accéder à cette ressource');
+}
+router.get('/api/users/getAllUsers', Authenticated, (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield getAllUsers();
         res.json(users);
@@ -25,6 +31,7 @@ router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, 
         const { email, password } = req.body;
         const user = yield loginUser(email, password);
         if (user) {
+            req.session.user = user;
             res.json(user);
         }
         else {
@@ -35,5 +42,8 @@ router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, 
         console.error('Error logging in:', error);
         res.status(500).json({ error: 'Error logging in' });
     }
+}));
+router.get('/test', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.status(200).json({ message: 'Test route works' });
 }));
 export default router;
