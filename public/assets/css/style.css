@@ -644,31 +644,30 @@ header nav a button.btn2 {
   background: #f9de4e;
 }
 
-.container {
+body .container {
   display: flex;
   align-items: center;
-  margin-left: 80px;
+  background: #f9de4e;
 }
-.container h2 {
+body .container h2 {
   width: 40%;
   font-size: 3rem;
   font-weight: 1000;
 }
-.container .image-container {
+body .container .image-container {
   flex: 1;
   display: flex;
   justify-content: flex-end;
 }
-.container .image-container .rectangle-container {
+body .container .image-container .rectangle-container {
   width: 20%;
   height: 10%;
   justify-content: flex-end;
 }
-.container .image-container img {
+body .container .image-container img {
   max-width: 100%;
   height: auto;
 }
-
 body .main-container {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5%;
