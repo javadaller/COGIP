@@ -596,6 +596,10 @@ html[data-theme="dark"] {
   filter: contrast(200%) brightness(150%) hue-rotate(240deg) grayscale(0);
 }
 
+body {
+  background-color: red;
+}
+
 .flexCenterCenter {
   display: flex;
   flex-direction: row;
@@ -681,8 +685,4 @@ html[data-theme="dark"] {
 .pointer {
   cursor: pointer;
   transition: 0.3s;
-}
-
-body {
-  background-color: rgb(168, 168, 255);
 }/*# sourceMappingURL=style.css.map */
