@@ -8,14 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Router } from 'express';
-import { getAllUsers, loginUser } from '../controllers/usersController.js';
+import { getAllUsers, loginUser, registerUser, promoteUser, demoteUser } from '../controllers/usersController.js';
+import { Authenticated, Admin } from '../secure/secure.js';
 const router = Router();
-function Authenticated(req, res, next) {
-    if (req.session.user) {
-        return next();
-    }
-    res.status(401).send('Veuillez vous connecter pour accéder à cette ressource');
-}
 router.get('/api/users/getAllUsers', Authenticated, (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield getAllUsers();
@@ -24,6 +19,37 @@ router.get('/api/users/getAllUsers', Authenticated, (_req, res) => __awaiter(voi
     catch (error) {
         console.error('Error retrieving users:', error);
         res.status(500).json({ error: 'Error retrieving users' });
+    }
+}));
+router.get('/api/users/loged', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        if (req.session.user) {
+            res.status(200).json({ connected: true });
+        }
+        else {
+            res.status(200).json({ connected: false });
+        }
+    }
+    catch (error) {
+        console.error('Error retrieving users:', error);
+        res.status(500).json({ error: 'Error retrieving users' });
+    }
+}));
+router.post('/api/users/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { email, password, first_name } = req.body;
+        const user = yield registerUser(email, password, first_name);
+        if (user) {
+            req.session.user = user;
+            res.json(user);
+        }
+        else {
+            res.status(400).json({ error: 'Could not register user' });
+        }
+    }
+    catch (error) {
+        console.error('Error registering user:', error);
+        res.status(500).json({ error: 'Error registering user' });
     }
 }));
 router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -43,7 +69,18 @@ router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, 
         res.status(500).json({ error: 'Error logging in' });
     }
 }));
-router.get('/test', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json({ message: 'Test route works' });
+router.get('/api/users/logout', Authenticated, (req, res) => {
+    req.session.user = null;
+    res.status(200).send();
+});
+router.put('/api/users/:id/promote', Authenticated, Admin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = Number(req.params.id);
+    const result = yield promoteUser(id);
+    res.json(result);
+}));
+router.put('/api/users/:id/demote', Authenticated, Admin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = Number(req.params.id);
+    const result = yield demoteUser(id);
+    res.json(result);
 }));
 export default router;
