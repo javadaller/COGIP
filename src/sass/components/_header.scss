@@ -1,1 +1,88 @@
-@use "../extends/_extends_dir";
+header {
+    background: #f9de4e;
+  
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      color: black;
+  
+      > div {
+        display: flex;
+        align-items: center;
+  
+        ul {
+          list-style-type: none;
+          display: flex;
+          gap: 20px;
+          margin: 0;
+  
+          li {
+            cursor: pointer;
+          }
+        }
+      }
+  
+      a {
+        text-decoration: none;
+        margin-left: 10px;
+  
+        button {
+          padding: 5px 15px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+  
+          &.btn1 {
+            background: white;
+          }
+  
+          &.btn2 {
+            background: #f9de4e;
+          }
+        }
+      }
+    }
+  }
+  
+  .container {
+    display: flex; 
+    align-items: center; 
+    margin-left: 80px;
+  
+    h2 {
+      width: 40%;
+      font-size: 3rem;
+      font-weight: 1000;
+    }
+  
+    .image-container {
+      flex: 1; 
+      display: flex;
+      justify-content: flex-end;
+      
+      .rectangle-container{
+
+        width: 20%;
+        height: 10%;
+        justify-content: flex-end;
+
+      }
+  
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  body{
+    section{
+      margin-left: 20%;
+        .main-container{
+           
+        }
+    }
+  }
+  
