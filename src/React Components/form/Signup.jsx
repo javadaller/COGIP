@@ -9,7 +9,7 @@ const Signup = () => {
     console.log('Username:', username);
     console.log('Password:', password);
   };
-
+2
   return (
     <div>
       <h2>Sign Up Page</h2>

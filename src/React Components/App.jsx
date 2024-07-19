@@ -1,7 +1,9 @@
 // App.jsx
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import './../../public/assets/css/style.css'; // Assurez-vous que le chemin est correct
+import './../../public/assets/css/style.css';
+import rectangleblanc from "../../Assets/Images/rectangleblanc.png";
+import img from "../../Assets/Images/homeImg.png";
 
 function App() {
   return (
@@ -34,6 +36,17 @@ function App() {
             </Link>
           </div>
         </nav>
+
+
+        <div className="container">
+        <h2>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>
+        <div className="image-container">
+          <img src={img} alt="Home illustration" />
+        </div>
+      </div>
+        <div className="rectangle-container">
+            <img src={rectangleblanc} alt="Rectangle blanc" />
+          </div>
       </header>
       <main>
         <Outlet /> {/* This is where nested routes will be rendered */}

@@ -653,16 +653,10 @@ body .container h2 {
   width: 40%;
   font-size: 3rem;
   font-weight: 1000;
-}
-body .container .image-container {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+  margin-left: 5%;
 }
 body .container .image-container .rectangle-container {
   width: 20%;
-  height: 10%;
-  justify-content: flex-end;
 }
 body .container .image-container img {
   max-width: 100%;
@@ -672,7 +666,6 @@ body .main-container {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5%;
   width: 100%;
-  margin-left: 4%;
 }
 body .main-container .test {
   padding: 2rem 0;
@@ -698,6 +691,31 @@ body .main-container .test .table-wrapper table thead {
   background-color: #f9de4e;
 }
 body .main-container .test .table-wrapper table th, body .main-container .test .table-wrapper table td {
+  padding: 1rem;
+  text-align: left;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+h1 {
+  margin-left: 15%;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  justify-content: center;
+  display: flex;
+}
+.table-wrapper table {
+  width: 70%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.table-wrapper table thead {
+  background-color: #f9de4e;
+}
+.table-wrapper table th, .table-wrapper table td {
   padding: 1rem;
   text-align: left;
   padding-left: 0.5rem;
