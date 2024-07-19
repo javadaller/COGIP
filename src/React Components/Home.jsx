@@ -17,83 +17,83 @@ export default function Home() {
         color: 'black',
     };
 
-//     const navSection = {
-//         marginTop: '50px',
-//         display: 'flex',
-//         alignItems: 'center',
-//     };
+    const navSection = {
+        marginTop: '50px',
+        display: 'flex',
+        alignItems: 'center',
+    };
 
-//     const h1 = {
-//         fontSize: '40px',
-//         fontWeight: 'bold',
-//         color: 'black',
-//         marginLeft: '80px',
-//         marginTop: '30px',
+    const h1 = {
+        fontSize: '40px',
+        fontWeight: 'bold',
+        color: 'black',
+        marginLeft: '80px',
+        marginTop: '30px',
 
-//     };
+    };
 
-//     const ul = {
-//         listStyleType: 'none',
-//         display: 'flex',
-//         gap: '20px',
-//         margin: '0 60px',
-//         padding: '0',
-//     };
+    const ul = {
+        listStyleType: 'none',
+        display: 'flex',
+        gap: '20px',
+        margin: '0 60px',
+        padding: '0',
+    };
 
-//     const li = {
-//         cursor: 'pointer',
-//         padding: '5px 10px',
-//     };
+    const li = {
+        cursor: 'pointer',
+        padding: '5px 10px',
+    };
 
-//     const homeLi ={
-//         marginLeft: '10px',
-//         padding: '5px 10px',
-//         background: '#f9de4e',
-//         border: '1px solid black',
-//     }
+    const homeLi ={
+        marginLeft: '10px',
+        padding: '5px 10px',
+        background: '#f9de4e',
+        border: '1px solid black',
+    }
 
-//     const div ={
-//         marginTop: '50px',
-//         marginRight: '100px',
-//     }
+    const div ={
+        marginTop: '50px',
+        marginRight: '100px',
+    }
 
 
-//     const btn1 = {
-//         marginLeft: '10px',
-//         padding: '5px 15px',
-//         background: 'white',
-//         borderRadius: '8px',
-//         border: 'none',
-//         cursor: 'pointer',
-//     };
+    const btn1 = {
+        marginLeft: '10px',
+        padding: '5px 15px',
+        background: 'white',
+        borderRadius: '8px',
+        border: 'none',
+        cursor: 'pointer',
+    };
 
-//     const btn ={
-//         marginLeft: '10px',
-//         padding: '5px 15px',
-//         background: '#f9de4e',
-//         border: 'none',
-//         cursor: 'pointer',
-//     }
+    const btn ={
+        marginLeft: '10px',
+        padding: '5px 15px',
+        background: '#f9de4e',
+        border: 'none',
+        cursor: 'pointer',
+    }
 
-//     const h2 = {
-//         fontSize: '50px',
-//         fontWeight: 'bold',
-//         marginBottom: '30px',
-//         marginLeft: '80px',
-//     };
+    const h2 = {
+        fontSize: '50px',
+        fontWeight: 'bold',
+        marginBottom: '30px',
+        marginLeft: '80px',
+    };
 
-//     const imageContainer = {
-//         display: 'flex',
-//         position: 'relative',
-//         background: '#f9de4e',
-//         padding: '50px 20px',
-//         height: '90vh',
-//     };
+    const imageContainer = {
+        display: 'flex',
+        position: 'relative',
+        background: '#f9de4e',
+        padding: '50px 20px',
+        height: '90vh',
+    };
 
-//     const imgStyle = {
-//         maxWidth: '50%',
-//         marginRight: '10px',
-//     };
+    const imgStyle = {
+        maxWidth: '50%',
+        marginRight: '10px',
+    };
 
     const imageContainer = {
         display: 'flex',
@@ -113,21 +113,14 @@ export default function Home() {
                     <h1 style={h1}>COGIP</h1>
                     <ul style={ul}>
                         <li style={homeLi}>Home</li>
-                        <Link to="/invoices">
                         <li style={li}>Invoices</li>
-                        </Link>
                         <li style={li}>Companies</li>
                         <li style={li}>Contacts</li>
                     </ul>
                 </div>
                 <div style={div}>
-                <Link to="/sign-up">
                     <button style={btn1}>Sign up</button>
-                    </Link>
-                    <Link to="/login">
-        <button style={btn}>Login</button>
-      </Link>
-                    
+                    <button style={btn}>Login</button>
                 </div>
             </nav>
 
@@ -137,5 +130,5 @@ export default function Home() {
 //                 <img src={overlayImg} style={overlayStyle} alt="" />
 //                 </div>
 //         </>
-//     );
-// }
+    );
+}

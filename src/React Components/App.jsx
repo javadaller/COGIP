@@ -1,6 +1,8 @@
 
 import React from 'react'
 import Home from './Home'
+import LowerBody from './lowerBody';
+import Footer from './Footer';
 import { Link } from 'react-router-dom';
 
     function App() {
