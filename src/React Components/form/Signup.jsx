@@ -6,7 +6,6 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Logique d'inscription ici
     console.log('Username:', username);
     console.log('Password:', password);
   };

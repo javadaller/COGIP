@@ -1,30 +1,48 @@
+// main.jsx (ou index.jsx)
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
-import Invoices from './invoices.jsx';
-import ErrorPage from './error-page.jsx';
-import Login from './form/login.jsx';
-import Signup from './form/sign-up.jsx';
+import Home from './Home.jsx';
+import Invoices from './Invoices.jsx';
+import Compagny from './Compagny.jsx';
+import Contact from './Contact.jsx';
+import ErrorPage from './ErrorPage.jsx';
+import Login from './form/Login.jsx';
+import Signup from './form/Signup.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/invoices',
+        element: <Invoices />,
+      },
+      {
+        path: '/compagny',
+        element: <Compagny />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+      {
+        path: '/sign-up',
+        element: <Signup />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+    ],
   },
-  {
-    path: '/login',
-    element: <Login />
-  },
-  {
-    path: '/sign-up',
-    element: <Signup />
-  },
-  {
-    path: '/invoices',
-    element: <Invoices />
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

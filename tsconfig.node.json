@@ -1,19 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "outDir": "./public/assets/js",
-    "rootDir": "./src",
-    "useDefineForClassFields": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "target": "ES6",
+    "module": "NodeNext",
+    "outDir": "./public/",
+    "rootDir": "./src/ts",
+    //"moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "strict": true
   },
   "include": ["src/**/*", "routes/**/*", "src/React Components/App.jsx", "src/React Components/main.jsx"],
   "exclude": ["node_modules"]
