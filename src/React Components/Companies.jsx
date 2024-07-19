@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Contact = () => {
+const Companies = () => {
     return (
         <body>
         <section className="test">
-        <h1>All Contacts</h1>
+        <h1>All Companies</h1>
         <div className="table-wrapper">
                     <table>
                       <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Phone</th>
-                          <th>Mail</th>
-                          <th>Compay</th>
+                          <th>TVA</th>
+                          <th>Country</th>
+                          <th>Type</th>
                           <th>Created at</th>
                           <th></th>
                         </tr>
@@ -29,9 +29,7 @@ const Contact = () => {
                   </div>
         </section>
         </body>
-
     )
-
 }
 
-export default Contact;
+export default Companies;
