@@ -27,11 +27,20 @@ export async function getLatestCompanies() {
 export async function editInvoice(id: number, newInvoiceData: any) {
     const { ref, company_ID } = newInvoiceData;
     const connection = await connectToDatabase();
-    const sql = 'UPDATE invoices SET ref = ?, company_ID = ?, updated_at = ? WHERE ID_invoice = ?';
+
+    const checkSql = 'SELECT * FROM invoices WHERE ID_invoice = ?'
+    const [checkRows] = await connection.query(checkSql, [id]) as any
+
+    if (checkRows.length < 1) {
+        console.log("Not found")
+        return
+    }
+
+    const sql = 'UPDATE invoices SET ref = ?, company_ID = ?, updated_at = ? WHERE ID_invoice = ?'
     const now = new Date().toISOString().slice(0, 19).replace('T', ' ')
-    const [result] = await connection.query(sql, [ref, company_ID, now, id]) as any;
-    await connection.end();
-    return result;
+    const [result] = await connection.query(sql, [ref || checkRows[0].ref, company_ID || checkRows[0].company_ID, now, id]) as any
+    await connection.end()
+    return result
 }
 
 export async function editContacts(id: number, newContactsData: any) {
