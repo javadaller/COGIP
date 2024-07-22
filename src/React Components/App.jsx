@@ -1,7 +1,11 @@
 // App.jsx
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import './../../public/assets/css/style.css'; // Assurez-vous que le chemin est correct
+import Footer from './Footer';
+import './../../public/assets/css/style.css'; 
+import img from './../../public/assets/Images/homeImg.png';
+import imgOverlay from "./../../public/assets/Images/rectangleblanc.png";
+
 
 function App() {
   return (
@@ -12,10 +16,9 @@ function App() {
             <h1>COGIP</h1>
             <ul>
             <Link to="/">
-              <li>Home</li>
+              <li className='homeLi'>Home</li>
               </Link>
               <Link to="/invoices">
-                <li>Invoices</li>
               </Link>
               <Link to="/companies">
                 <li>Companies</li>
@@ -34,10 +37,21 @@ function App() {
             </Link>
           </div>
         </nav>
+        
+        <div className='headerContainer'>
+          <h2>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</h2>
+                <div className='imageContainer'>
+                <img src={img} alt="Home illustration"/>
+                </div>
+        </div>
+                <img className='imgOverlay' src={imgOverlay} alt="overlay" />
+              
       </header>
       <main>
         <Outlet /> {/* This is where nested routes will be rendered */}
       </main>
+
+      <Footer/>
     </div>
   );
 }

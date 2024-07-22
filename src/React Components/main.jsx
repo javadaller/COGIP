@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Home from './Home.jsx';
-import Invoices from './Invoices.jsx';
+// import Invoices from './Invoices.jsx';
 import Compagny from './Compagny.jsx';
 import Contact from './Contact.jsx';
 import ErrorPage from './ErrorPage.jsx';
@@ -21,10 +21,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
-      {
-        path: '/invoices',
-        element: <Invoices />,
-      },
+      // {
+      //   path: '/invoices',
+      //   element: <Invoices />,
+      // },
       {
         path: '/compagny',
         element: <Compagny />,

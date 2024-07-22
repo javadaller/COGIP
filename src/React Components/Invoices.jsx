@@ -1,14 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Importation de Link
-import img from '../../Assets/Images/homeImg.png'; // Assurez-vous que le chemin est correct
+// import React from 'react';
+// import { Link } from 'react-router-dom'; // Importation de Link
 
-const Invoices = () => {
-  return (
-    <>
+// const Invoices = () => {
+//   return (
+//     <>
       
    
-    </>
-  );
-};
+//     </>
+//   );
+// };
 
-export default Invoices;
+// export default Invoices;
