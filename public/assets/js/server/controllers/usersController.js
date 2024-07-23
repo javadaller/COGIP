@@ -40,6 +40,11 @@ export function loginUser(email, password) {
         }
     });
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/dev
 export function registerUser(email, password, first_name) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -85,3 +90,7 @@ export function demoteUser(id) {
         return result;
     });
 }
+<<<<<<< HEAD
+=======
+>>>>>>> origin/tom
+>>>>>>> origin/dev

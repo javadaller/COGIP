@@ -8,9 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Router } from 'express';
+<<<<<<< HEAD
 import { getAllUsers, loginUser, registerUser, promoteUser, demoteUser } from '../controllers/usersController.js';
 import { Authenticated, Admin } from '../secure/secure.js';
 const router = Router();
+=======
+<<<<<<< HEAD
+import { getAllUsers, loginUser } from '../controllers/usersController.js';
+const router = Router();
+function Authenticated(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.status(401).send('Veuillez vous connecter pour accéder à cette ressource');
+}
+=======
+import { getAllUsers, loginUser, registerUser, promoteUser, demoteUser } from '../controllers/usersController.js';
+import { Authenticated, Admin } from '../secure/secure.js';
+const router = Router();
+>>>>>>> origin/tom
+>>>>>>> origin/dev
 router.get('/api/users/getAllUsers', Authenticated, (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield getAllUsers();
@@ -21,6 +38,11 @@ router.get('/api/users/getAllUsers', Authenticated, (_req, res) => __awaiter(voi
         res.status(500).json({ error: 'Error retrieving users' });
     }
 }));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/dev
 router.get('/api/users/loged', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (req.session.user) {
@@ -52,6 +74,10 @@ router.post('/api/users/register', (req, res) => __awaiter(void 0, void 0, void 
         res.status(500).json({ error: 'Error registering user' });
     }
 }));
+<<<<<<< HEAD
+=======
+>>>>>>> origin/tom
+>>>>>>> origin/dev
 router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { email, password } = req.body;
@@ -69,6 +95,13 @@ router.post('/api/users/login', (req, res) => __awaiter(void 0, void 0, void 0, 
         res.status(500).json({ error: 'Error logging in' });
     }
 }));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+router.get('/test', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.status(200).json({ message: 'Test route works' });
+=======
+>>>>>>> origin/dev
 router.get('/api/users/logout', Authenticated, (req, res) => {
     req.session.user = null;
     res.status(200).send();
@@ -82,5 +115,9 @@ router.put('/api/users/:id/demote', Authenticated, Admin, (req, res) => __awaite
     const id = Number(req.params.id);
     const result = yield demoteUser(id);
     res.json(result);
+<<<<<<< HEAD
+=======
+>>>>>>> origin/tom
+>>>>>>> origin/dev
 }));
 export default router;
