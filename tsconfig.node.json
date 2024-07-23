@@ -8,6 +8,6 @@
     "esModuleInterop": true,
     "strict": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "routes/**/*", "src/React Components/App.jsx", "src/React Components/main.jsx"],
   "exclude": ["node_modules"]
 }

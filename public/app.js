@@ -17,6 +17,10 @@ function test() {
         catch (error) {
             console.error('Error:', error);
         }
+<<<<<<< HEAD
     });
+=======
+    }); 
+>>>>>>> origin/tom
 }
 test();

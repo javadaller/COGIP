@@ -40,3 +40,51 @@ export function loginUser(email, password) {
         }
     });
 }
+<<<<<<< HEAD
+=======
+export function registerUser(email, password, first_name) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            if ((!email || !password || !first_name)) {
+                console.error("entry not valid");
+                return;
+            }
+            const connection = yield connectToDatabase();
+            const checkSql = 'SELECT * FROM users WHERE email = ? OR first_name = ?';
+            const [checkRows] = yield connection.query(checkSql, [email, first_name]);
+            if (checkRows.length > 0) {
+                console.error('Email or first name already exists');
+                return;
+            }
+            const sql = 'INSERT INTO users (email, password, first_name, role_ID, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)';
+            const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
+            const [result] = yield connection.query(sql, [email, password, first_name, 2, now, now]);
+            console.log('User registered:', result);
+            yield connection.end();
+            return result;
+        }
+        catch (error) {
+            console.error('Error during user registration:', error);
+            throw error;
+        }
+    });
+}
+export function promoteUser(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const connection = yield connectToDatabase();
+        const sql = 'UPDATE users SET role_ID = ? WHERE ID_user = ?';
+        const [result] = yield connection.query(sql, [1, id]); // supposons que 1 est le rôle d'administrateur
+        yield connection.end();
+        return result;
+    });
+}
+export function demoteUser(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const connection = yield connectToDatabase();
+        const sql = 'UPDATE users SET role_ID = ? WHERE ID_user = ?';
+        const [result] = yield connection.query(sql, [2, id]); // supposons que 2 est le rôle d'utilisateur standard
+        yield connection.end();
+        return result;
+    });
+}
+>>>>>>> origin/tom
